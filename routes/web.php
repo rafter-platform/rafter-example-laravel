@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\TestJob;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/queue', function () {
+    TestJob::dispatch();
+
+    return 'Job enqueued';
+});
+
+Route::get('/cache', function  () {
+    $hits = Cache::increment('hits');
+    return "Cache hit {$hits} times.";
 });

@@ -8,4 +8,4 @@ Enqueues a `TestJob`, which writes to the log.
 
 ## `/cache`
 
-Demos a cache being incremented..
+Demos a cache being incremented...
